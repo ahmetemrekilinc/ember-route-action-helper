@@ -41,6 +41,9 @@ export default Helper.extend({
 
     runInDebug(() => {
       let { handler } = getRouteWithAction(router, actionName);
+      if(!handler){
+        console.error(`[ember-route-action-helper] Unable to find route action '${actionName}'`);
+      }
       assert(`[ember-route-action-helper] Unable to find action ${actionName}`, handler);
     });
 
